@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Website Recipe</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+        @font-face {
+            font-family: 'Kugile';
+            src: url('font/kugile/Kugile_Demo.ttf') format('truetype');
+            font-weight: normal;
+            font-style: normal;
+        }
+        @font-face {
+            font-family: 'Rustic Roadway';
+            src: url('font/Rustic Roadway/RusticRoadway.otf') format('opentype');
+            font-weight: normal;
+            font-style: normal;
+        }
+        @font-face {
+            font-family: 'baguet';
+            src: url('font/baguet-script-regular/baguet-script-regular.otf') format('opentype');
+            font-weight: normal;
+            font-style: normal;
+        }
+        body{
+            width:100vw;
+            height:auto;
+            font-family: 'Courier New', Courier, monospace;
+            background-image: url('pic/seamless.png');
+            background-size: auto 20vw;
+            cursor: url('pic/hand\ open\ curser.png'),auto;
+        }
+        header {
+            font-family: 'Rustic Roadway';
+            color: #3D2219;
+            bottom: 2vh;
+            text-align: center;
+            font-size: 2vw;
+        }
+        p{
+            font-family: 'baguet';
+            padding: 4vw;
+            color: #3D2219;
+            font-size: 2vw;
+        }
+        .handwritten{
+            font-family: 'baguet';
+            text-align: center;
+            color: #3D2219;
+            font-size: 3.5vw;
+        }
+        .center{
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+        }
+        .display{
+            max-width: 60vw;
+            max-height: 100vw;
+            height: auto;
+        }
+        .container{
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+        }
+    </style>
+</head>
+<body>
+    <header><h1>Recipe of</h1></header>
+    <div class="center">
+        <h1><span class="handwritten">"Week3: WWWOT IS WWW?"</span></h1>
+    </div>
+    <p>Recipe of "Week3: WWWOT IS WWW?":<br> • Webpage's appearance<br> • Arranging HTML tags<br> • 3 x bottles of 'Interactivity' from archives or galleries<br> • Some interactive elements from listed websites
+    </p>
+    <div class="container">
+        <img src = 'pic/weeks/3/1.png'class="display">
+        <img src = 'pic/weeks/3/2.png'class="display">
+        <img src = 'pic/weeks/3/temu.png'class="display">
+        <img src = 'pic/weeks/3/Yayoi Kusama.png'class="display">
+        <img src = 'pic/weeks/3/renzo piano.png'class="display">
+        <img src = 'pic/weeks/3/Hiroshi Sugimoto.png'class="display">
+    </div>
+    <a href="index.html"><p>Go back</p></a>
+</body>
+</html>

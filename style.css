@@ -1,0 +1,78 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+@font-face {
+    font-family: 'Kugile';
+    src: url('Resource/Font/kugile/Kugile_Demo.ttf') format('truetype');
+}
+
+@font-face {
+    font-family: 'Rustic Roadway';
+    src: url('Resource/Font/Rustic Roadway/RusticRoadway.otf') format('opentype');
+}
+
+body{
+    width:100vw;
+    height: 100vh; 
+    overflow: hidden;
+    font-family: 'Courier New', Courier, monospace;
+    background-image: url('Resource/Image/background beta.png');
+    background-size: auto;
+}
+
+header {
+    font-family: 'Rustic Roadway';
+    color: #3D2219;
+    font-size: 2vw;
+    position: absolute;
+    top: 2vh;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 3;
+    pointer-events: none;
+}
+
+.container{
+    position: relative;
+    width: 100%;
+    height: 100%;
+}
+
+.background{
+    position: absolute;
+    pointer-events: none;
+    z-index: 1;
+    max-height: 100%;
+    max-width: 100%;
+    height: auto;
+    width: auto;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.sidebar{
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 20vw;
+    height: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    padding: 1vh;
+    gap: 1vh;
+    z-index: 2;
+}
+
+.sidebar model-viewer{
+    width: 6vw;
+    height: auto;
+}
+
+.potion {
+    width: 6vw;
+    height: 6vw; /* 强制正方形 */
+    object-fit: contain;
+}
