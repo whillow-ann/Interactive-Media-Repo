@@ -5,18 +5,51 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>The Big Mix</title>
     <link rel="stylesheet" href="style.css">
-    
 </head>
 <body>
     <header><h1>The Big Mix</h1></header>
     <div class="container">
         <div class="sidebar">
-            <model-viewer class="potion" src="Resource/Model/potion1.glb" alt="Potion 1" environment-image="Resource/Model/church_meeting_room_4k.hdr" auto-rotate style="width:6vw;height:6vw"></model-viewer>
-            <model-viewer class="potion" src="Resource/Model/potion2.glb" alt="Potion 2" environment-image="Resource/Model/church_meeting_room_4k.hdr" auto-rotate style="width:6vw;height:6vw"></model-viewer>
-            <model-viewer class="potion" src="Resource/Model/potion3.glb" alt="Potion 3" environment-image="Resource/Model/church_meeting_room_4k.hdr" auto-rotate style="width:6vw;height:6vw"></model-viewer>
+            <!-- I made the glb file myself, I get the hdr file from https://polyhaven.com/a/church_meeting_room -->
+            <model-viewer class="potion" src="Resource/Model/potion1.glb" alt="Potion 1" environment-image="Resource/Model/church_meeting_room_4k.hdr" auto-rotate style="width:8vw;height:8vw"></model-viewer>
+            <model-viewer class="potion" src="Resource/Model/potion2.glb" alt="Potion 2" environment-image="Resource/Model/church_meeting_room_4k.hdr" auto-rotate style="width:8vw;height:8vw"></model-viewer>
+            <model-viewer class="potion" src="Resource/Model/potion3.glb" alt="Potion 3" environment-image="Resource/Model/church_meeting_room_4k.hdr" auto-rotate style="width:8vw;height:8vw"></model-viewer>
         </div>
     </div>
 
     <script type="module" src="https://unpkg.com/@google/model-viewer/dist/model-viewer.min.js"></script>
+    <script>
+        const potions = document.querySelectorAll('.potion');
+        const sidebarX = 10;
+        const startY = 20;
+        const gapX = 150;
+
+        potions.forEach((potion, index) => {
+            potion.style.left = `${sidebarX + index * gapX}px`;
+            potion.style.top = `${startY}px`;
+            potion.style.cursor = 'grab';
+
+            let offsetX, offsetY;
+            potion.addEventListener('mousedown', e => {
+                offsetX = e.clientX - potion.getBoundingClientRect().left;
+                offsetY = e.clientY - potion.getBoundingClientRect().top;
+                potion.style.cursor = 'grabbing';
+
+                function onMouseMove(eMove) {
+                    potion.style.left = `${eMove.clientX - offsetX}px`;
+                    potion.style.top = `${eMove.clientY - offsetY}px`;
+                }
+
+                function onMouseUp() {
+                    document.removeEventListener('mousemove', onMouseMove);
+                    document.removeEventListener('mouseup', onMouseUp);
+                    potion.style.cursor = 'grab';
+                }
+
+                document.addEventListener('mousemove', onMouseMove);
+                document.addEventListener('mouseup', onMouseUp);
+            });
+        });
+    </script>
 </body>
 </html>

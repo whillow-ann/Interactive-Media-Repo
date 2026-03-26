@@ -72,7 +72,6 @@ header {
 }
 
 .potion {
-    width: 6vw;
-    height: 6vw; /* 强制正方形 */
+    position: absolute;
     object-fit: contain;
 }
