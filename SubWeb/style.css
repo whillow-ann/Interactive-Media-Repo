@@ -1,0 +1,80 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+@font-face {
+    font-family: 'Kugile';
+    src: url('../Resource/Font/kugile/Kugile_Demo.ttf') format('truetype');
+}
+
+@font-face {
+    font-family: 'Rustic Roadway';
+    src: url('../Resource/Font/Rustic Roadway/RusticRoadway.otf') format('opentype');
+}
+
+@font-face {
+    font-family: 'sacramento';
+    src: url('../Resource/Font/sacramento/Sacramento-Regular.ttf') format('truetype');
+}
+
+body {
+    font-family: Arial, sans-serif;
+    color: #222;
+    background: url('../Resource/Image/recipe top.png') no-repeat top center,
+                url('../Resource/Image/recipe seamless.png') repeat;
+}
+
+header {
+    font-family: 'Rustic Roadway';
+    color: #3D2219;
+    font-size: 40;
+    position: absolute;
+    top: 2vh;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 3;
+    pointer-events: none;
+}
+
+/*.hero {
+    width: 100%;
+    aspect-ratio: 1920 / 1080;
+    background: url('../Resource/Image/recipe top.png') no-repeat top center;
+    background-size: 100% 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}*/
+
+
+.main-title {
+    font-size: 4vw;
+    color: #ffffff;
+    letter-spacing: 0.2em;
+    text-shadow: 0 0 10px rgba(0,0,0,0.6);
+}
+
+.content {
+    padding-top: 330px;
+    line-height: 1.6;
+}
+
+.section {
+    font-family: 'sacramento';
+    font-size: 40;
+    max-width: 800px;
+    margin: 0 auto 40px;
+}
+
+h2 {
+    margin-bottom: 10px;
+}
+
+.hero-header {
+    position: absolute;
+    top: 20%;
+    left: 52.5%;
+    transform: translateX(-50%);
+}
