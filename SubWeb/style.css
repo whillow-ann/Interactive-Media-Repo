@@ -19,6 +19,11 @@
     src: url('../Resource/Font/sacramento/Sacramento-Regular.ttf') format('truetype');
 }
 
+@font-face {
+    font-family: 'Marck Script';
+    src: url('../Resource/Font/Marck Script/Marck_Script/MarckScript-Regular.ttf') format('truetype');
+}
+
 body {
     font-family: Arial, sans-serif;
     color: #222;
@@ -62,10 +67,17 @@ header {
 }
 
 .section {
-    font-family: 'sacramento';
-    font-size: 40;
+    font-family: 'Marck Script';
+    font-size: 40px;
     max-width: 800px;
     margin: 0 auto 40px;
+}
+
+.section img {
+    width: 60%;
+    height: auto;
+    display: block;
+    margin: 0 auto;
 }
 
 h2 {
@@ -77,4 +89,12 @@ h2 {
     top: 20%;
     left: 52.5%;
     transform: translateX(-50%);
+}
+
+.return-scroll {
+    position: fixed;
+    top: 2vh;
+    left: 2vw;
+    width: 10vw;
+    z-index: 100;
 }

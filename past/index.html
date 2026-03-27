@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Website Recipe</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+        @font-face {
+            font-family: 'Kugile';
+            src: url('font/kugile/Kugile_Demo.ttf') format('truetype');
+            font-weight: normal;
+            font-style: normal;
+        }
+        @font-face {
+            font-family: 'Rustic Roadway';
+            src: url('font/Rustic Roadway/RusticRoadway.otf') format('opentype');
+            font-weight: normal;
+            font-style: normal;
+        }
+        body{
+            width:100vw;
+            height:auto;
+            font-family: 'Courier New', Courier, monospace;
+            background-image: url('pic/seamless.png');
+            background-size: auto 20vw;
+            cursor: url('pic/hand\ open\ curser.png'),auto;
+        }
+        header {
+            font-family: 'Rustic Roadway';
+            color: #3D2219;
+            padding: 2vh;
+            text-align: center;
+            font-size: 2vw;
+        }
+        .container{
+            position: relative;
+            height: 100vw;
+            width: auto;
+        }
+        .potion{
+            position: absolute;
+            height: auto;
+            width: 8vw;
+            z-index: 2;
+            padding: 1vh;
+            cursor: url('pic/tweezers\ curser.png'),auto;
+        }
+        .hidden {
+            display: none; /* Hide initially */
+        }
+        .potion_table{
+            position: absolute;
+            pointer-events: none;
+            z-index: 1;
+            max-height: 100vw;
+            max-width: 100vw;
+            height: auto;
+            width: auto;
+            align-items: center;
+            justify-content: center;
+        }
+        .potion_list{
+            display: flex;
+            flex-direction: column;
+        }
+        .potion_in_table{
+        }
+        #menu-col{
+            width:20vw;
+            background-color: blue;
+        }
+    </style>
+</head>
+<body>
+    <header><h1>My Website Recipe</h1></header>
+    <!--Big Donga -->
+    <div class="container">
+        <img src = 'pic/background.png'class="potion_table">
+        <div class="potion_in_table">
+            <a href="week1.html"><img src = 'pic/potion1.gif'class="potion hidden"id="potion1t" style="top: 0vw; left: 12.75vw;"></a>
+            <a href="week2.html"><img src = 'pic/potion2.gif'class="potion hidden"id="potion2t" style="top: 0vw; left: 22.25vw;"></a>
+            <a href="week3.html"><img src = 'pic/potion3.gif'class="potion hidden"id="potion3t" style="top: 0vw; left: 31.75vw;"></a>
+        </div>
+        <script>
+            function potion_1_on_click() {
+                document.getElementById("potion1").style.display = "none"; // Hide first image
+                document.getElementById("potion1t").style.display = "block"; // Show second image
+            }
+            function potion_2_on_click() {
+                document.getElementById("potion2").style.display = "none"; // Hide first image
+                document.getElementById("potion2t").style.display = "block"; // Show second image
+            }
+            function potion_3_on_click() {
+                document.getElementById("potion3").style.display = "none"; // Hide first image
+                document.getElementById("potion3t").style.display = "block"; // Show second image
+            }
+        </script>
+        <div class="potion_list">
+            <img src = 'pic/potion1.gif'class="potion"id="potion1"onclick="potion_1_on_click()" style="top: 0vw; left: 0vw;">
+            <img src = 'pic/potion2.gif'class="potion"id="potion2"onclick="potion_2_on_click()" style="top: 12vw; left: 0vw;">
+            <img src = 'pic/potion3.gif'class="potion"id="potion3"onclick="potion_3_on_click()" style="top: 24vw; left: 0vw;">
+        </div>
+    </div>
+    </div>
+</body>
+</html>
