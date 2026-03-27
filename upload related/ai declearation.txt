@@ -1,0 +1,19 @@
+Declaration
+
+I acknowledge the use of ChatGPT to help me :
+1: fixing the index page's model clicking & dragging contradictory logic
+2：index page's model location variables
+3: seamless repetition background ordering in weekly page
+
+Google stitch to help me :
+1: create the in class experiment page Week 3
+
+A full record of prompts and outputs is available upon request.
+
+2026-3-27
+Ai has:
+1: fixing the index page's model clicking & dragging contradictory logic
+2：index page's model location variables
+3: seamless repetition background ordering in weekly page
+4: The week 3 AI stitch webpage
+
