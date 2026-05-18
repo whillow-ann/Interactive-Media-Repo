@@ -98,3 +98,22 @@ h2 {
     width: 10vw;
     z-index: 100;
 }
+
+.return-scroll.bottom-left {
+    position: fixed;
+    bottom: 2vh;
+    left: 2vw;
+    top: auto;
+    width: 10vw;
+    z-index: 100;
+}
+
+.return-scroll.bottom-right {
+    position: fixed;
+    bottom: 2vh;
+    right: 2vw;
+    top: auto;
+    left: auto;
+    width: 10vw;
+    z-index: 100;
+}
