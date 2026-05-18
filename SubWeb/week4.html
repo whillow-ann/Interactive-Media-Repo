@@ -1,0 +1,95 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The Big Mix</title>
+
+    <!-- I used many help from generative AI to allign seemless img repetition -->
+
+    <link rel="stylesheet" href="style.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/PapaParse/5.4.1/papaparse.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+</head>
+
+<body>
+    
+    <a href="../index.html"><img src='../Resource/Animation/close scroll gif.gif' class="return-scroll"></a>
+
+    <header class="hero-header"><h1>Recipe of Week 4</h1></header>
+
+    <div class="content"></div>
+
+    <script>
+    $(document).ready(function () {
+
+        Papa.parse('week4.csv', {
+            download: true,
+            header: true,
+            complete: function (results) {
+
+                const container = $('.content');
+
+                results.data.forEach(function (row) {
+
+                    if (!row) return;
+
+                    const section = $('<div>').addClass('section');
+
+                    // --------------------
+                    // IMAGES (0+)
+                    // format: img1;img2;img3
+                    // --------------------
+                    if (row.Images) {
+                        row.Images.split(';').forEach(function (imgUrl) {
+                            if (imgUrl.trim()) {
+                                section.append(
+                                    $('<img>').attr('src', imgUrl.trim())
+                                );
+                            }
+                        });
+                    }
+
+                    // --------------------
+                    // LINKS (0+)
+                    // format: url|label;url|label
+                    // --------------------
+                    if (row.Links) {
+                        row.Links.split(';').forEach(function (linkItem) {
+                            const parts = linkItem.split('|');
+                            const url = parts[0];
+                            const label = parts[1] || url;
+
+                            if (url) {
+                                section.append(
+                                    $('<a>')
+                                        .attr('href', url.trim())
+                                        .text(label.trim())
+                                );
+                            }
+                        });
+                    }
+
+                    // --------------------
+                    // TEXT (1+ or multiple)
+                    // format: text1;text2;text3
+                    // --------------------
+                    if (row.Texts) {
+                        row.Texts.split(';').forEach(function (text) {
+                            if (text.trim()) {
+                                section.append(
+                                    $('<p>').text(text.trim())
+                                );
+                            }
+                        });
+                    }
+
+                    container.append(section);
+                });
+            }
+        });
+
+    });
+    </script>
+
+</body>
+</html>
