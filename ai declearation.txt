@@ -1,0 +1,38 @@
+Declaration
+
+I acknowledge the use of ChatGPT to help me :
+1: fixing the index page's model clicking & dragging contradictory logic
+2：index page's model location variables
+3: seamless repetition background ordering in weekly page
+
+Google stitch to help me :
+1: create the in class experiment page Week 3
+
+A full record of prompts and outputs is available upon request.
+
+2026-3-27
+Ai has:
+1: fixing the index page's model clicking & dragging contradictory logic
+2：index page's model location variables
+3: seamless repetition background ordering in weekly page
+4: The week 3 AI stitch webpage
+
+2026-5-20
+
+Ai has:
+1: fix many bugs from lightbox mode
+2: suggest using way to setup the potions' initial location
+3: explain & generate the structure of how to use excel csv file to generate html content
+4: structure of implement playable video in website
+5: How to properly apply texture on original background
+6: teach me Logic of display="none" and display="inline-block", generate code
+7: teach me transform: translateX(-50%); to make sure object is in center
+8: Collision detect between potion and cauldron.glb
+9: teach me const VAR = document.querySelector(); format
+10: Affinity colour flip on pixelated image
+11: Music logic button
+12: Affinity masking
+
+AI try to help me with modeling but is especially useless, didn't take any advice.
+
+That should be all, checked twice, can't think of more.

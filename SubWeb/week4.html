@@ -9,6 +9,10 @@
     <link rel="stylesheet" href="style.css">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/PapaParse/5.4.1/papaparse.min.js"></script>
     <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+
+    <style>
+        
+    </style>
 </head>
 
 <body>
@@ -17,14 +21,42 @@
 
     <header class="hero-header"><h1>Recipe of Week 4</h1></header>
 
-    <a href="week3.html"><img src='../Resource/Animation/close scroll gif.gif' class="return-scroll bottom-left"></a>
-    <a href="../index.html"><img src='../Resource/Animation/close scroll gif.gif' class="return-scroll bottom-right"></a>
-
+    <a href="week3.html"><img src='../Resource/Animation/flip backward.gif' class="return-scroll bottom-left"></a>
+    <a href="week5.html"><img src='../Resource/Animation/flip forward.gif' class="return-scroll bottom-right"></a>
 
     <div class="content"></div>
 
+    <!-- lightbox container -->
+    <div class="lightbox" id="lightbox">
+        <img id="lightbox-img" style="display:none;" />
+        <video id="lightbox-video" controls style="display:none;"></video>
+    </div>
+
     <script>
     $(document).ready(function () {
+
+        const lightbox = $('#lightbox');
+        const lightboxImg = $('#lightbox-img');
+        const lightboxVideo = $('#lightbox-video');
+
+        function openImage(src) {
+            lightboxVideo.hide();
+            lightboxImg.attr('src', src).show();
+            lightbox.css('display', 'flex');
+        }
+
+        function openVideo(src) {
+            lightboxImg.hide();
+            lightboxVideo.attr('src', src)[0].play();
+            lightboxVideo.show();
+            lightbox.css('display', 'flex');
+        }
+
+        lightbox.on('click', function () {
+            lightbox.hide();
+            lightboxVideo[0].pause();
+            lightboxVideo.attr('src', '');
+        });
 
         Papa.parse('week4.csv', {
             download: true,
@@ -39,44 +71,52 @@
 
                     const section = $('<div>').addClass('section');
 
-                    // --------------------
-                    // IMAGES (0+)
-                    // format: img1;img2;img3
-                    // --------------------
+                    // IMAGES
                     if (row.Images) {
                         row.Images.split(';').forEach(function (imgUrl) {
                             if (imgUrl.trim()) {
-                                section.append(
-                                    $('<img>').attr('src', imgUrl.trim())
-                                );
+                                const img = $('<img>').attr('src', imgUrl.trim());
+                                img.on('click', function () {
+                                    openImage($(this).attr('src'));
+                                });
+                                section.append(img);
                             }
                         });
                     }
 
-                    // --------------------
-                    // LINKS (0+)
-                    // format: url|label;url|label
-                    // --------------------
-                    if (row.Links) {
-                        row.Links.split(';').forEach(function (linkItem) {
-                            const parts = linkItem.split('|');
-                            const url = parts[0];
-                            const label = parts[1] || url;
+                    // VIDEOS
+                    if (row.Videos) {
+                        row.Videos.split(';').forEach(function (videoUrl) {
+                            if (videoUrl.trim()) {
+                                const video = $('<video muted>').attr('src', videoUrl.trim());
+                                video.on('click', function () {
+                                    openVideo($(this).attr('src'));
+                                });
+                                section.append(video);
+                            }
+                        });
+                    }
 
+                    // LINKS
+                    if (row.LinkURLs) {
+                        const urls = row.LinkURLs.split(';');
+                        const labels = row.LinkTexts ? row.LinkTexts.split(';') : [];
+
+                        urls.forEach(function (url, i) {
+                            url = url.trim();
                             if (url) {
+                                const label = (labels[i] && labels[i].trim()) ? labels[i].trim() : url;
+
                                 section.append(
                                     $('<a>')
-                                        .attr('href', url.trim())
-                                        .text(label.trim())
+                                        .attr('href', url)
+                                        .text(label)
                                 );
                             }
                         });
                     }
 
-                    // --------------------
-                    // TEXT (1+ or multiple)
-                    // format: text1;text2;text3
-                    // --------------------
+                    // TEXTS
                     if (row.Texts) {
                         row.Texts.split(';').forEach(function (text) {
                             if (text.trim()) {

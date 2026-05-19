@@ -7,24 +7,73 @@
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
+    <audio id="bgm" src="Resource/Sound/7 Fantasies_ No. 1. A Fantasie, P. 1.mp4" loop></audio>
+    <audio id="dropSound" src="Resource/Sound/glass-bottle-clinking-sound-effect_0wBvpbAV.mp3"></audio>
     <header><h1>The Big Mix</h1></header>
+    <img id="toggleBtn" src="Resource/Image/nsound.png" class="top-right-btn">
     <div class="container">
+        <audio id="bgm" src="Resource/Sound/7 Fantasies_ No. 1. A Fantasie, P. 1.mp4" loop></audio>
         <div class="sidebar">
             <!-- I made the glb file myself, I get the hdr file from https://polyhaven.com/a/church_meeting_room -->
+
+            <model-viewer class="cauldron" src="Resource/Model/cauldron.glb" 
+            data-link="SubWeb/week10.html"
+            alt="cauldron" environment-image="neutral"
+            auto-rotate style="width:20vw;height:16vw"></model-viewer>
             
-            <model-viewer class="potion" src="Resource/Model/potion7.glb" 
-            data-link="SubWeb/week4.html"
+            <model-viewer class="potion" src="Resource/Model/potion1.glb" 
+            data-link="SubWeb/week1.html"
             alt="Potion 1" environment-image="neutral"
             auto-rotate style="width:8vw;height:8vw"></model-viewer>
             
-            <model-viewer class="potion" src="Resource/Model/potion8.glb"
+            <model-viewer class="potion" src="Resource/Model/potion2.glb"
             data-link="SubWeb/week2.html"
             alt="Potion 2" environment-image="neutral"
             auto-rotate style="width:8vw;height:8vw"></model-viewer>
 
-            <model-viewer class="potion" src="Resource/Model/potion10.glb" 
+            <model-viewer class="potion" src="Resource/Model/potion3.glb" 
             data-link="SubWeb/week3.html"
             alt="Potion 3" environment-image="neutral"
+            auto-rotate style="width:8vw;height:8vw"></model-viewer>
+
+            <model-viewer class="potion" src="Resource/Model/potion4.glb" 
+            data-link="SubWeb/week4.html"
+            alt="Potion 4" environment-image="neutral"
+            auto-rotate style="width:8vw;height:8vw"></model-viewer>
+
+            <model-viewer class="potion" src="Resource/Model/potion5.glb" 
+            data-link="SubWeb/week5.html"
+            alt="Potion 5" environment-image="neutral"
+            auto-rotate style="width:8vw;height:8vw"></model-viewer>
+
+            <model-viewer class="potion" src="Resource/Model/potion6.glb" 
+            data-link="SubWeb/week6.html"
+            alt="Potion 6" environment-image="neutral"
+            auto-rotate style="width:8vw;height:8vw"></model-viewer>
+
+            <model-viewer class="potion" src="Resource/Model/potion7.glb" 
+            data-link="SubWeb/week7.html"
+            alt="Potion 7" environment-image="neutral"
+            auto-rotate style="width:8vw;height:8vw"></model-viewer>
+
+            <model-viewer class="potion" src="Resource/Model/potion8.glb" 
+            data-link="SubWeb/week8.html"
+            alt="Potion 8" environment-image="neutral"
+            auto-rotate style="width:8vw;height:8vw"></model-viewer>
+
+            <model-viewer class="potion" src="Resource/Model/potion9.glb" 
+            data-link="SubWeb/week9.html"
+            alt="Potion 9" environment-image="neutral"
+            auto-rotate style="width:8vw;height:8vw"></model-viewer>
+
+            <model-viewer class="potion" src="Resource/Model/potion10.glb" 
+            data-link="SubWeb/week10.html"
+            alt="Potion 10" environment-image="neutral"
+            auto-rotate style="width:8vw;height:8vw"></model-viewer>
+
+            <model-viewer class="stone" src="Resource/Model/stone.glb" 
+            data-link="SubWeb/week10.html"
+            alt="stone" environment-image="neutral"
             auto-rotate style="width:8vw;height:8vw"></model-viewer>
         </div>
     </div>
@@ -32,13 +81,50 @@
     <script type="module" src="https://unpkg.com/@google/model-viewer/dist/model-viewer.min.js"></script>
     <script>
         const potions = document.querySelectorAll('.potion');
-        const sidebarX = 10;
-        const startY = 20;
-        const gapX = 150;
+        const cauldron = document.querySelector('.cauldron');
+        const stone = document.querySelector('.stone');
+        const sidebarX = 50;
+        const startY = 170;
+        const gapX = 160;
+        const gapY = 250;
+        const lgapX = 110;
+
+        const btn = document.getElementById('toggleBtn');
+        const bgm = document.getElementById('bgm');
+
+        var inCauldronCount = 0;
+
+        let isOn = false;
+
+        btn.addEventListener('click', async () => {
+            isOn = !isOn;
+        
+            // 切换图片
+            btn.src = isOn 
+                ? "Resource/Image/sound.png"
+                : "Resource/Image/nsound.png";
+        
+            // 控制音乐
+            if (isOn) {
+                try {
+                    await bgm.play();
+                } catch (e) {
+                    console.log("play blocked");
+                }
+            } else {
+                bgm.pause();
+            }
+        });
 
         potions.forEach((potion, index) => {
-            potion.style.left = `${sidebarX + index * gapX}px`;
-            potion.style.top = `${startY}px`;
+            potion.style.left = `${sidebarX + (index % 3) * gapX}px`;
+            if(index < 6){
+                potion.style.left = `${(sidebarX + (index % 3) * gapX)/20}vw`;
+                potion.style.top = `${(startY + Math.floor(index / 3) * gapY)/9.25}vh`;
+            }else{
+                potion.style.left = `${(sidebarX + (index - 6) * lgapX)/20}vw`;
+                potion.style.top = `${730/9.25}vh`;
+            }
             potion.style.cursor = 'grab';
 
             let offsetX, offsetY;
@@ -56,6 +142,31 @@
                     document.removeEventListener('mousemove', onMouseMove);
                     document.removeEventListener('mouseup', onMouseUp);
                     potion.style.cursor = 'grab';
+
+                    const rect = potion.getBoundingClientRect();
+                    const potionCenterX = rect.left + rect.width / 2;
+                    const potionCenterY = rect.top + rect.height / 2;
+
+                    const cauldronRect = cauldron.getBoundingClientRect();
+                    const cauldronCenterX = cauldronRect.left + cauldronRect.width / 2;
+                    const cauldronCenterY = cauldronRect.top + cauldronRect.height / 2;
+
+                    if (
+                        potionCenterX > cauldronCenterX - 80 &&
+                        potionCenterX < cauldronCenterX + 80 &&
+                        potionCenterY > cauldronCenterY - 80 &&
+                        potionCenterY < cauldronCenterY + 80
+                    ) {
+                        potion.style.display = "none";
+                        const sound = document.getElementById("dropSound");
+                        sound.currentTime = 0;
+                        sound.play();
+                        inCauldronCount++;
+                        if(inCauldronCount == 10){
+                            stone.style.display = "inline-block";
+                        }
+                    }
+
                 }
 
                 document.addEventListener('mousemove', onMouseMove);
@@ -70,6 +181,10 @@
             
             document.addEventListener('mousemove', () => {
                 isDragging = true;
+            });
+
+            stone.addEventListener('click', () => {
+                window.location.href = stone.dataset.link;
             });
             
             potion.addEventListener('mouseup', () => {

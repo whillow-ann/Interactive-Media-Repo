@@ -13,18 +13,24 @@
     src: url('Resource/Font/Rustic Roadway/RusticRoadway.otf') format('opentype');
 }
 
+@font-face {
+    font-family: 'EB';
+    src: url('Resource/Font/EB_Garamond/static/EBGaramond-Medium.ttf') format('truetype');
+}
+
 body{
     width:100vw;
     height: 100vh; 
     overflow: hidden;
-    font-family: 'Courier New', Courier, monospace;
+    font-family: 'EB', Courier, monospace;
     background-image: url('Resource/Image/background\ beta\ -\ Copy.png');
     background-size: auto;
+    cursor: url('/Resource/cursor/hand\ open\ curser.png'),auto;
 }
 
 header {
-    font-family: 'Rustic Roadway';
-    color: #3D2219;
+    font-family: 'EB';
+    color: #7d6157;
     font-size: 2vw;
     position: absolute;
     top: 2vh;
@@ -74,5 +80,32 @@ header {
 .potion {
     position: absolute;
     object-fit: contain;
+    cursor: url("/Resource/cursor/tweezers curser.png") 8 8, auto !important;
 }
 
+.cauldron {
+    position: fixed;
+    left: 50%;
+    transform: translateX(-50%);
+    bottom: 30px;
+}
+
+.stone{
+    position: fixed;
+    cursor: url("/Resource/cursor/tweezers curser.png") 8 8, auto !important;
+    left: 50%;
+    transform: translateX(-50%);
+    bottom: 35vh;
+    display: none;
+}
+
+.top-right-btn {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    width: 6vw;
+    height: 6vw;
+    cursor: pointer;
+    z-index: 9999;
+    cursor: url('/Resource/cursor/tweezers curser.png'),auto;
+}

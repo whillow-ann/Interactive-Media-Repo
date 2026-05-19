@@ -1,0 +1,5 @@
+﻿Images,Videos,LinkURLs,LinkTexts,Texts
+../Resource/WeeklyNotes/final/Screenshot 2026-05-20 065725.png,,,,"The final project is a ""Lonely Schroom"". This schroom is very lonely and needs to feel enough movement in front of or nearby to feel companionship, otherwise it will feel sad and scared."
+../Resource/WeeklyNotes/final/CCI20260507.jpg,,,,The initial version of Week 9 used only a single up-and-down servo movement to show the mushroom's growth.
+../Resource/WeeklyNotes/final/CCI20260514.jpg,,,,"The second version of Week 10 involved many brainstorming sessions, but each had its own problems: either it performed oddly, or it required a huge, complex structure above."
+../Resource/WeeklyNotes/final/CCI20260520_0001.jpg,,,,The current final version used a wire and ground with a moving angle to effect the direction of the mushroom's swing.

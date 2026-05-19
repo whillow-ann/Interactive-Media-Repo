@@ -24,16 +24,32 @@
     src: url('../Resource/Font/Marck Script/Marck_Script/MarckScript-Regular.ttf') format('truetype');
 }
 
+@font-face {
+    font-family: 'EB';
+    src: url('../Resource/Font/EB_Garamond/static/EBGaramond-Medium.ttf') format('truetype');
+}
+
+@font-face {
+    font-family: 'EBB';
+    src: url('../Resource/Font/EB_Garamond/static/EBGaramond-Bold.ttf') format('truetype');
+}
+
+@font-face {
+    font-family: 'EBT';
+    src: url('../Resource/Font/EB_Garamond/static/EBGaramond-Regular.ttf') format('truetype');
+}
+
 body {
     font-family: Arial, sans-serif;
-    color: #222;
+    color: #563636;
     background: url('../Resource/Image/recipe top.png') no-repeat top center,
                 url('../Resource/Image/recipe seamless.png') repeat;
+    cursor: url('../Resource/cursor/hand\ open\ curser.png'),auto;
 }
 
 header {
-    font-family: 'Rustic Roadway';
-    color: #3D2219;
+    font-family: 'EB';
+    color: #563636;
     font-size: 40;
     position: absolute;
     top: 2vh;
@@ -67,14 +83,22 @@ header {
 }
 
 .section {
-    font-family: 'Marck Script';
-    font-size: 40px;
+    font-family: 'EBT';
+    font-size: 20px;
     max-width: 800px;
     margin: 0 auto 40px;
 }
 
 .section img {
-    width: 60%;
+    width: 30vw;
+    height: auto;
+    display: block;
+    margin: 0 auto;
+    cursor: url("/Resource/cursor/tweezers curser.png") 8 8, auto !important;
+}
+
+.section video {
+    width: 30vw;
     height: auto;
     display: block;
     margin: 0 auto;
@@ -97,6 +121,7 @@ h2 {
     left: 2vw;
     width: 10vw;
     z-index: 100;
+    cursor: url('../Resource/cursor/tweezers\ curser.png'),auto;
 }
 
 .return-scroll.bottom-left {
@@ -116,4 +141,28 @@ h2 {
     left: auto;
     width: 10vw;
     z-index: 100;
+}
+
+.lightbox {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background: rgba(0,0,0,0.85);
+    display: none;
+    align-items: center;
+    justify-content: center;
+    z-index: 9999;
+    flex-direction: column;
+}
+
+.lightbox img, .lightbox video {
+    max-width: 90vw;
+    max-height: 90vh;
+}
+
+.section img, .section video {
+    cursor: pointer;
+    max-width: 100%;
 }
