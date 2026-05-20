@@ -25,7 +25,7 @@ body{
     font-family: 'EB', Courier, monospace;
     background-image: url('Resource/Image/background\ beta\ -\ Copy.png');
     background-size: auto;
-    cursor: url('/Resource/cursor/hand\ open\ curser.png'),auto;
+    cursor: url('Resource/cursor/hand\ open\ curser.png'),auto;
 }
 
 header {
@@ -80,7 +80,7 @@ header {
 .potion {
     position: absolute;
     object-fit: contain;
-    cursor: url("/Resource/cursor/tweezers curser.png") 8 8, auto !important;
+    cursor: url("Resource/cursor/tweezers curser.png") 8 8, auto !important;
 }
 
 .cauldron {
@@ -92,7 +92,7 @@ header {
 
 .stone{
     position: fixed;
-    cursor: url("/Resource/cursor/tweezers curser.png") 8 8, auto !important;
+    cursor: url("Resource/cursor/tweezers curser.png") 8 8, auto !important;
     left: 50%;
     transform: translateX(-50%);
     bottom: 35vh;
@@ -107,5 +107,5 @@ header {
     height: 6vw;
     cursor: pointer;
     z-index: 9999;
-    cursor: url('/Resource/cursor/tweezers curser.png'),auto;
+    cursor: url('Resource/cursor/tweezers curser.png'),auto;
 }
